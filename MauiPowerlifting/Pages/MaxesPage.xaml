@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiPowerlifting.Pages.MaxesPage"
+             Title="MaxesPage">
+    <FlexLayout Direction="Column"
+            AlignItems="Center"
+            JustifyContent="SpaceEvenly">
+        <Label 
+            Text="Current Maxes"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <HorizontalStackLayout>
+            <Label Text="Squat Max : " />
+            <Entry x:Name="Squat"
+        Keyboard="Numeric"
+        Placeholder="Squat Max"             
+        MaxLength="4"/>
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout>
+            <Label Text="Bench Max : " />
+            <Entry x:Name="Bench"
+        Keyboard="Numeric"
+        Placeholder="Bench Max"
+        MaxLength="4"/>
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout>
+            <Label Text="Deadlift Max : " />
+            <Entry x:Name="Deadlift"
+        Keyboard="Numeric"
+        Placeholder="Deadlift Max"
+        MaxLength="4"/>
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout>
+            <Label Text="Military Press Max : " />
+            <Entry x:Name="MilitaryPress"
+        Keyboard="Numeric"
+                Placeholder="Military Press Max"
+        MaxLength="4"/>
+        </HorizontalStackLayout>
+
+        <Button Text="Button" />
+    </FlexLayout>
+</ContentPage>
