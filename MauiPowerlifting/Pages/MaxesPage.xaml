@@ -43,6 +43,6 @@
         MaxLength="4"/>
         </HorizontalStackLayout>
 
-        <Button Text="Button" />
+        <Button Text="Save" />
     </FlexLayout>
 </ContentPage>
