@@ -1,8 +1,8 @@
 namespace MauiPowerlifting.Pages;
 
-public partial class Day1 : ContentPage
+public partial class Day1Page : ContentPage
 {
-	public Day1()
+	public Day1Page()
 	{
 		InitializeComponent();
 	}

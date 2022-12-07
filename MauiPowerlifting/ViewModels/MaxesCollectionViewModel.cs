@@ -18,8 +18,8 @@ namespace MauiPowerlifting.ViewModels
             NewCommand = new Command(
                 execute: () =>
                 {
-                    maxesEdit = new MaxesViewModel();
-                    maxesEdit.PropertyChanged += OnMaxesEditPropertyChanged;
+                    MaxesEdit = new MaxesViewModel();
+                    MaxesEdit.PropertyChanged += OnPersonEditPropertyChanged;
                     IsEditing = true;
                     RefreshCanExecutes();
                 },
@@ -31,7 +31,7 @@ namespace MauiPowerlifting.ViewModels
             SubmitCommand = new Command(
                 execute: () =>
                 {
-                    maxesEdit.PropertyChanged -= OnMaxesEditPropertyChanged;
+                    MaxesEdit.PropertyChanged -= OnPersonEditPropertyChanged;
                     Maxes.Add(MaxesEdit);
                     MaxesEdit = null;
                     IsEditing = false;
@@ -40,15 +40,15 @@ namespace MauiPowerlifting.ViewModels
                 canExecute: () =>
                 {
                     return MaxesEdit != null &&
-                           MaxesEdit.Bench > 0 &&
-                           MaxesEdit.Squat > 0 &&
-                           MaxesEdit.Deadlift > 0;
+                           MaxesEdit.Squat > 1 &&
+                           MaxesEdit.Bench > 1 &&
+                           MaxesEdit.Deadlift > 1;
                 });
 
             CancelCommand = new Command(
                 execute: () =>
                 {
-                    MaxesEdit.PropertyChanged -= OnMaxesEditPropertyChanged;
+                    MaxesEdit.PropertyChanged -= OnPersonEditPropertyChanged;
                     MaxesEdit = null;
                     IsEditing = false;
                     RefreshCanExecutes();
@@ -59,7 +59,7 @@ namespace MauiPowerlifting.ViewModels
                 });
         }
 
-        void OnMaxesEditPropertyChanged(object sender, PropertyChangedEventArgs args)
+        void OnPersonEditPropertyChanged(object sender, PropertyChangedEventArgs args)
         {
             (SubmitCommand as Command).ChangeCanExecute();
         }
@@ -80,7 +80,7 @@ namespace MauiPowerlifting.ViewModels
         public MaxesViewModel MaxesEdit
         {
             set { SetProperty(ref maxesEdit, value); }
-            get { return MaxesEdit; }
+            get { return maxesEdit; }
         }
 
         public ICommand NewCommand { private set; get; }

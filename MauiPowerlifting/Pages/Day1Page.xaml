@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MauiPowerlifting.Pages.Day1"
-             Title="Day1">
-    <ContentPage.BindingContext>
+             xmlns:local="clr-namespace:MauiPowerlifting.ViewModels"
+             x:Class="MauiPowerlifting.Pages.Day1Page"
+             Title="Day 1">
+      <ContentPage.BindingContext>
         <local:MaxesCollectionViewModel />
     </ContentPage.BindingContext>
     <Grid Margin="10">
@@ -14,12 +15,12 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <!-- New Button -->
+        <!-- New Button 
         <Button Text="New"
                 Grid.Row="0"
                 Command="{Binding NewCommand}"
                 HorizontalOptions="Start" />
-
+-->
         <!-- Entry Form -->
         <Grid Grid.Row="1"
               IsEnabled="{Binding IsEditing}">
@@ -34,19 +35,16 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <Label Text="Name: " Grid.Row="0" Grid.Column="0" />
-                <Entry Text="{Binding Name}" 
+                <Label Text="Squat: " Grid.Row="0" Grid.Column="0" />
+                <Entry Text="{Binding Squat}" 
                        Grid.Row="0" Grid.Column="1" />
-                <Label Text="Age: " Grid.Row="1" Grid.Column="0" />
-                <StackLayout Orientation="Horizontal" 
-                             Grid.Row="1" Grid.Column="1">
-                    <Stepper Value="{Binding Age}"
-                             Maximum="100" />
-                    <Label Text="{Binding Age, StringFormat='{0} years old'}"
-                           VerticalOptions="Center" />
-                </StackLayout>
-                <Label Text="Skills: " Grid.Row="2" Grid.Column="0" />
-                <Entry Text="{Binding Skills}"
+
+                <Label Text="Bench: " Grid.Row="1" Grid.Column="0" />
+                <Entry Text="{Binding Bench}"
+                       Grid.Row="1" Grid.Column="1" />
+
+                <Label Text="Deadlift: " Grid.Row="2" Grid.Column="0" />
+                <Entry Text="{Binding Deadlift}"
                        Grid.Row="2" Grid.Column="1" />
             </Grid>
         </Grid>
@@ -70,6 +68,6 @@
 
         <!-- List of Persons -->
         <ListView Grid.Row="3"
-                  ItemsSource="{Binding Persons}" />
+                  ItemsSource="{Binding Maxes}" />
     </Grid>
 </ContentPage>
