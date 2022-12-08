@@ -8,6 +8,7 @@
     <FlyoutItem Title="6x Program">
         <ShellContent Title="Current Maxes" ContentTemplate="{DataTemplate local:MaxesPage}" />
         <ShellContent Title="Day 1" ContentTemplate="{DataTemplate local:Day1Page}" />
+        <ShellContent Title="Day 2" ContentTemplate="{DataTemplate local:Day2Page}" />
     </FlyoutItem>
     <!--
     <FlyoutItem Title="About" Icon="question.png">

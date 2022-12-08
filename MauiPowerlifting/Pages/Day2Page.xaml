@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiPowerlifting.Pages.Day2Page"
              xmlns:local="clr-namespace:MauiPowerlifting.ViewModels"
-             x:Class="MauiPowerlifting.Pages.Day1Page"
-             Title="Day 1">
+             Title="Day 2">
     <FlexLayout Direction="Column"
             AlignItems="Center"
             JustifyContent="SpaceEvenly">
         <Label 
-            Text="Max Effort Bench"
+            Text="Max effort squat"
             VerticalOptions="Center" 
             HorizontalOptions="Center" 
             FontSize="22" />
         <HorizontalStackLayout>
-            <Label Text="Bench Press: 6 sets of 2 @85%" />
+            <Label Text="Compition Sqaut: 5 sets of 2 @87% of max" />
         </HorizontalStackLayout>
         <HorizontalStackLayout>
-            <Label Text="Paused bench: 5 sets of 3 @ 78%" />
+            <Label Text="SSB squat: 5 sets of 3 @ 80% of max" />
         </HorizontalStackLayout>
         <HorizontalStackLayout>
-            <Label Text="Close grip bench: 4 sets of 12 " />
+            <Label Text="Leg press: 4 sets of 10" />
         </HorizontalStackLayout>
         <ListView Grid.Row="3"
                   ItemsSource="{Binding Bench}" />

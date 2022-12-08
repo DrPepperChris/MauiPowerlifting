@@ -58,6 +58,9 @@
 	  <MauiXaml Update="Pages\Day1Page.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Pages\Day2Page.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pages\MaxesPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

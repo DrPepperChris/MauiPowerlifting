@@ -14,7 +14,6 @@ namespace MauiPowerlifting.ViewModels
         int bench;
         int deadlift;
         int press;
-        int total;
 
         public event PropertyChangedEventHandler PropertyChanged;
 

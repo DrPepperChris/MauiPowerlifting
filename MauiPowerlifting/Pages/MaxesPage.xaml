@@ -1,48 +1,67 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MauiPowerlifting.ViewModels"
              x:Class="MauiPowerlifting.Pages.MaxesPage"
-             Title="MaxesPage">
-    <FlexLayout Direction="Column"
-            AlignItems="Center"
-            JustifyContent="SpaceEvenly">
-        <Label 
-            Text="Current Maxes"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+             Title="Current Maxes">
+    <ContentPage.BindingContext>
+        <local:MaxesCollectionViewModel />
+    </ContentPage.BindingContext>
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
 
-        <HorizontalStackLayout>
-            <Label Text="Squat Max : " />
-            <Entry x:Name="Squat"
-        Keyboard="Numeric"
-        Placeholder="Squat Max"             
-        MaxLength="4"/>
-        </HorizontalStackLayout>
+        <!-- Entry Form -->
+        <Grid Grid.Row="1"
+              IsEnabled="{Binding IsEditing}">
+            <Grid BindingContext="{Binding MaxesEdit}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
 
-        <HorizontalStackLayout>
-            <Label Text="Bench Max : " />
-            <Entry x:Name="Bench"
-        Keyboard="Numeric"
-        Placeholder="Bench Max"
-        MaxLength="4"/>
-        </HorizontalStackLayout>
+                <Label Text="Squat: " Grid.Row="0" Grid.Column="0" />
+                <Entry Text="{Binding Squat}" 
+                       Grid.Row="0" Grid.Column="1" />
 
-        <HorizontalStackLayout>
-            <Label Text="Deadlift Max : " />
-            <Entry x:Name="Deadlift"
-        Keyboard="Numeric"
-        Placeholder="Deadlift Max"
-        MaxLength="4"/>
-        </HorizontalStackLayout>
+                <Label Text="Bench: " Grid.Row="1" Grid.Column="0" />
+                <Entry Text="{Binding Bench}"
+                       Grid.Row="1" Grid.Column="1" />
 
-        <HorizontalStackLayout>
-            <Label Text="Military Press Max : " />
-            <Entry x:Name="MilitaryPress"
-        Keyboard="Numeric"
-                Placeholder="Military Press Max"
-        MaxLength="4"/>
-        </HorizontalStackLayout>
+                <Label Text="Deadlift: " Grid.Row="2" Grid.Column="0" />
+                <Entry Text="{Binding Deadlift}"
+                       Grid.Row="2" Grid.Column="1" />
+            </Grid>
+        </Grid>
 
-        <Button Text="Save" />
-    </FlexLayout>
+        <!-- Submit and Cancel Buttons -->
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Button Text="Submit"
+                    Grid.Column="0"
+                    Command="{Binding SubmitCommand}"
+                    VerticalOptions="Center" />
+            <Button Text="Cancel"
+                    Grid.Column="1"
+                    Command="{Binding CancelCommand}"
+                    VerticalOptions="Center" />
+        </Grid>
+
+        <!-- List of Maxes -->
+        <ListView Grid.Row="3"
+                  ItemsSource="{Binding Maxes}" />
+    </Grid>
 </ContentPage>
