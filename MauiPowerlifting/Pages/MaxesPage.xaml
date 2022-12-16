@@ -24,21 +24,26 @@
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
+                
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
 
                 <Label Text="Squat: " Grid.Row="0" Grid.Column="0" />
                 <Entry Text="{Binding Squat}" 
+                       MaxLength="4"
                        Grid.Row="0" Grid.Column="1" />
 
                 <Label Text="Bench: " Grid.Row="1" Grid.Column="0" />
                 <Entry Text="{Binding Bench}"
+                        MaxLength="4"
                        Grid.Row="1" Grid.Column="1" />
 
                 <Label Text="Deadlift: " Grid.Row="2" Grid.Column="0" />
                 <Entry Text="{Binding Deadlift}"
+                        MaxLength="4"
                        Grid.Row="2" Grid.Column="1" />
             </Grid>
         </Grid>
@@ -54,6 +59,7 @@
                     Grid.Column="0"
                     Command="{Binding SubmitCommand}"
                     VerticalOptions="Center" />
+            
             <Button Text="Cancel"
                     Grid.Column="1"
                     Command="{Binding CancelCommand}"

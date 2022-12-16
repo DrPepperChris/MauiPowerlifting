@@ -19,7 +19,7 @@ namespace MauiPowerlifting.ViewModels
                 execute: () =>
                 {
                     MaxesEdit = new MaxesViewModel();
-                    MaxesEdit.PropertyChanged += OnPersonEditPropertyChanged;
+                    MaxesEdit.PropertyChanged += OnMaxesEditPropertyChanged;
                     IsEditing = true;
                     RefreshCanExecutes();
                 },
@@ -31,7 +31,7 @@ namespace MauiPowerlifting.ViewModels
             SubmitCommand = new Command(
                 execute: () =>
                 {
-                    MaxesEdit.PropertyChanged -= OnPersonEditPropertyChanged;
+                    MaxesEdit.PropertyChanged -= OnMaxesEditPropertyChanged;
                     Maxes.Add(MaxesEdit);
                     MaxesEdit = null;
                     IsEditing = false;
@@ -48,7 +48,7 @@ namespace MauiPowerlifting.ViewModels
             CancelCommand = new Command(
                 execute: () =>
                 {
-                    MaxesEdit.PropertyChanged -= OnPersonEditPropertyChanged;
+                    MaxesEdit.PropertyChanged -= OnMaxesEditPropertyChanged;
                     MaxesEdit = null;
                     IsEditing = false;
                     RefreshCanExecutes();
@@ -59,7 +59,7 @@ namespace MauiPowerlifting.ViewModels
                 });
         }
 
-        void OnPersonEditPropertyChanged(object sender, PropertyChangedEventArgs args)
+        void OnMaxesEditPropertyChanged(object sender, PropertyChangedEventArgs args)
         {
             (SubmitCommand as Command).ChangeCanExecute();
         }
